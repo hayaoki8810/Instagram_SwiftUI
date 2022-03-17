@@ -8,13 +8,20 @@
 import SwiftUI
 
 struct ProfileView: View {
-    var body: some View {
-        Text("Profile")
+    let user: User
+    @ObservedObject var vm: ProfileViewModel
+    
+    init(user: User){
+        self.user = user
+        self.vm = ProfileViewModel(user: user)
     }
-}
-
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
+    
+    var body: some View {
+        ScrollView {
+            VStack(spacing: 32){
+                ProfileHeaderView(vm: vm)
+                PostGridView(config: .profile(user.id ?? ""))
+            }.padding(.top)
+        }
     }
 }

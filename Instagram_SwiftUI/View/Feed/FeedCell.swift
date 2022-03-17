@@ -6,24 +6,33 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct FeedCell: View {
+    @ObservedObject var vm: FeedCellViewModel
+    
+    var didLike: Bool { return vm.post.didLike ?? false }
+    
+    init(vm: FeedCellViewModel){
+        self.vm = vm
+    }
+    
     var body: some View {
         VStack(alignment: .leading){
             HStack {
-                Image(systemName: "person.circle")
+                KFImage(URL(string: vm.post.ownerImageUrl))
                     .resizable()
                     .scaledToFit()
                     .frame(width: 36, height: 36)
                     .clipped()
                     .cornerRadius(18)
                 
-                Text("Joker")
+                Text(vm.post.ownerUserName)
                     .font(.system(size: 14, weight: .semibold))
             }.padding([.leading, .bottom], 8)
             
             // post image
-            Image("beautifulImage")
+            KFImage(URL(string: vm.post.imageUrl))
                 .resizable()
                 .scaledToFit()
                 .frame(maxHeight: 440)
@@ -31,25 +40,26 @@ struct FeedCell: View {
             
             // action buttons
             HStack(spacing: 16){
-                Button(action: {}, label: {
-                    Image(systemName: "heart")
+                Button(action: {
+                    vm.post.didLike! ? vm.unlike() : vm.like()
+                }, label: {
+                    Image(systemName: didLike ? "heart.fill" : "heart")
                         .resizable()
                         .scaledToFit()
+                        .foregroundColor(didLike ? .red: .black)
                         .frame(width: 20, height: 20)
                         .font(.system(size: 20))
                         .clipped()
                         .padding(4)
                 })
                 
-                Button(action: {}, label: {
+                NavigationLink(destination: CommentsView(post: vm.post), label: {
                     Image(systemName: "bubble.right")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 20, height: 20)
                         .font(.system(size: 20))
-                        .clipped()
                         .padding(4)
-                    
                 })
                 
                 Button(action: {}, label: {
@@ -66,34 +76,27 @@ struct FeedCell: View {
             .foregroundColor(.black)
             
             // captions
-            
-            Text("3 likes")
+            Text(vm.likeString)
                 .font(.system(size: 14, weight: .semibold))
                 .padding(.leading, 8)
                 .padding(.bottom, 2)
             
             HStack {
-                Text("batman")
+                Text(vm.post.ownerUserName)
                     .font(.system(size: 14, weight: .semibold))
                 +
                 Text(" ")
                 +
-                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut viverra quis magna vel tincidunt. Nunc porttitor consequat velit et venenatis. ")
+                Text("\(vm.post.caption)")
                     .font(.system(size: 15))
             }
             .padding(.horizontal, 8)
             
-            Text("2d")
+            Text(vm.timestampString)
                 .font(.system(size: 14))
                 .foregroundColor(.gray)
                 .padding(.leading, 8)
                 .padding(.top, -2)
         }
-    }
-}
-
-struct FeedCell_Previews: PreviewProvider {
-    static var previews: some View {
-        FeedCell()
     }
 }

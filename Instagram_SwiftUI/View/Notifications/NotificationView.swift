@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct NotificationView: View {
+    @ObservedObject var vm = NotificationViewModel()
+    
     var body: some View {
-        Text("Notifications")
+        ScrollView {
+            LazyVStack {
+                ForEach(vm.notifications){ notification in
+                    NotificationCell(vm: NotificationCellViewModel(notification: notification))
+                        .padding(.top)
+                }
+            }
+        }
     }
 }
 

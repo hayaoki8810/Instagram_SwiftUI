@@ -8,9 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var vm: AuthViewModel
+    @State var selectedIndex = 0
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Group {
+            if vm.userSession == nil {
+                LoginView()
+            } else {
+                VStack {
+                    if let user = vm.currentUser {
+                        MainTabView(user: user, selectedIndex: $selectedIndex)
+                    }
+                }
+            }
+        }
     }
 }
 

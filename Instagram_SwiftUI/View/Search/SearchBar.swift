@@ -10,6 +10,7 @@ import SwiftUI
 struct SearchBar: View {
     
     @Binding var text: String
+    @Binding var isEditting: Bool
     
     var body: some View {
         HStack {
@@ -26,13 +27,30 @@ struct SearchBar: View {
                             .padding(.leading, 4)
                     }
                 )
+                .onTapGesture {
+                    isEditting = true
+                }
+            
+            if isEditting {
+                Button(action: {
+                    isEditting = false
+                    text = ""
+                    UIApplication.shared.endEditing()
+                }, label: {
+                    Text("Cancel")
+                        .foregroundColor(.black)
+                })
+                    .padding(.trailing, 8)
+                    .transition(.move(edge: .trailing))
+                    .animation(.default)
+            }
         }
     }
 }
 
 struct SearchBar_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBar(text: .constant("Search..."))
+        SearchBar(text: .constant("Search..."), isEditting: .constant(true))
             .previewLayout(.sizeThatFits)
     }
 }

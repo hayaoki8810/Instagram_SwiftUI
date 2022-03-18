@@ -19,6 +19,7 @@ struct Instagram_SwiftUIApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(AuthViewModel.shared)
+                .environment(\.colorScheme, .light)
         }
     }
 }

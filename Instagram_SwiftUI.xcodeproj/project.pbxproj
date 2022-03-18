@@ -92,7 +92,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4A329E0B27D9BBC100D0AE40 /* Instagram_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A329E0B27D9BBC100D0AE40 /* My Insta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Insta.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A329E0E27D9BBC100D0AE40 /* Instagram_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instagram_SwiftUIApp.swift; sourceTree = "<group>"; };
 		4A329E1027D9BBC100D0AE40 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4A329E1227D9BBC200D0AE40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -200,7 +200,7 @@
 		4A329E0C27D9BBC100D0AE40 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4A329E0B27D9BBC100D0AE40 /* Instagram_SwiftUI.app */,
+				4A329E0B27D9BBC100D0AE40 /* My Insta.app */,
 				4A329E1B27D9BBC200D0AE40 /* Instagram_SwiftUITests.xctest */,
 				4A329E2527D9BBC200D0AE40 /* Instagram_SwiftUIUITests.xctest */,
 			);
@@ -464,7 +464,7 @@
 				4A60C44D27E17A2900EBFAB0 /* FirebaseStorageSwift-Beta */,
 			);
 			productName = Instagram_SwiftUI;
-			productReference = 4A329E0B27D9BBC100D0AE40 /* Instagram_SwiftUI.app */;
+			productReference = 4A329E0B27D9BBC100D0AE40 /* My Insta.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4A329E1A27D9BBC200D0AE40 /* Instagram_SwiftUITests */ = {
@@ -804,7 +804,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.vanko.Instagram-SwiftUI";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "My Insta";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -833,7 +833,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.vanko.Instagram-SwiftUI";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "My Insta";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

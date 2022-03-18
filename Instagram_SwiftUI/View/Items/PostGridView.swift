@@ -22,7 +22,7 @@ struct PostGridView: View {
     }
     
     var body: some View {
-        LazyVGrid(columns: items, spacing: 2, content: {
+        LazyVGrid(columns: items, content: {
             ForEach(vm.posts) { post in
                 NavigationLink(destination: {
                     FeedCell(vm: FeedCellViewModel(post: post))
